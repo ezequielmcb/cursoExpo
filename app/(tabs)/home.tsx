@@ -8,11 +8,10 @@ import EmptyState from "@/components/EmptyState"
 import { getAllposts } from "@/lib/appwrite"
 import useAppWrite from "@/lib/useAppwrite"
 import VideoCard from "@/components/VideoCard"
-import { IVideo } from "@/types"
+import { ICreator, IVideo } from "@/types"
 
 const HomePage = () => {
   const { data: posts, refetch, isloading }: { data: IVideo[], refetch: () => void, isloading: boolean } = useAppWrite(getAllposts)
-
 
   const [refreshing, setRefreshing] = useState(false)
 
@@ -26,7 +25,7 @@ const HomePage = () => {
     <SafeAreaView className="bg-primary h-full px-6">
       <FlatList
         data={posts}
-        keyExtractor={(item) => item.id}
+        keyExtractor={(item) => item.$id}
         renderItem={({ item }) => (
           <VideoCard video={item} />
         )}

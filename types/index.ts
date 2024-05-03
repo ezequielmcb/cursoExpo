@@ -25,28 +25,28 @@ export interface IFormField {
 }
 
 export interface IVideo {
-    collectionId?: string;
-    createdAt?: string;
-    databaseId?: string;
-    id: string;
-    permissions?: any[]; 
-    updatedAt?: string;
-    creator?: Creator | null;
+    $collectionId?: string;
+    $createdAt?: string;
+    $databaseId?: string;
+    $id: string;
+    $permissions?: any[]; 
+    $updatedAt?: string;
+    creator?: ICreator | null | undefined;
     prompt?: string;
     thumbnail?: string;
     title?: string;
     video?: string;
 }
 
-export interface Creator {
-    collectionId?: string;
-    createdAt?: string;
-    databaseId?: string;
-    id?: string;
-    permissions?: any[]; 
-    updatedAt?: string;
+export interface ICreator {
+    $collectionId?: string;
+    $createdAt?: string;
+    $databaseId?: string;
+    $id?: string;
+    $permissions?: any[]; 
+    $updatedAt?: string;
     accountid?: string;
     avatar?: string;
     email?: string;
-    username?: string;
+    username: string;
 }
